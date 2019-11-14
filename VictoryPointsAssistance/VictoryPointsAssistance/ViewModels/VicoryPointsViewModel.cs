@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using VictoryPointsAssistance.Models;
+using Xamarin.Forms;
 
 namespace VictoryPointsAssistance.ViewModels
 {
@@ -10,9 +13,16 @@ namespace VictoryPointsAssistance.ViewModels
 		public VicoryPointsViewModel()
 		{
 			Players = new List<Player> { new Player(), new Player() };
+			PlusMinusButtonCommand = new Command<PointsChangeModel>((PointsChangeModel p) => ChangeComand(p.Player, p.ChangePoints));
 		}
 
 		public IReadOnlyList<Player> Players { get; set; }
+
+		public ICommand PlusMinusButtonCommand { get; set; }
+
+		public PointsChangeModel CommandFirstPlayerAdd { get; set; } = PointsChangeModel.CommandFirstPlayerAdd;
+
+		//public ICommand<(int, int)> TestPulsMinusCommand { get; set; }
 
 		public string MaelstormFirstPlayer { get { return Players[0].MaelstormVictoryPoints.ToString(); } }
 

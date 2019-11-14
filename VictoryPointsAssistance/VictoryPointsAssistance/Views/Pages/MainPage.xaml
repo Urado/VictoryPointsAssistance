@@ -28,7 +28,7 @@
 
 		<Button Text="P" Clicked="MaelstormPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="1" />
 		<Button Text="P" Clicked="MissionPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="2" />
-		<Button Text="P" Clicked="CommandPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="3" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerAdd}"  Grid.Column="0" Grid.Row="3" />
 
 		<Button Text="M" Clicked="MaelstormMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="1" />
 		<Button Text="M" Clicked="MissionMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="2" />
