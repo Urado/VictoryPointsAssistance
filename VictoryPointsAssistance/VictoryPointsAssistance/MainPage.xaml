@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+				xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				mc:Ignorable="d"
+				x:Class="VictoryPointsAssistance.MainPage">
+
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+
+		<Button Text="P" Clicked="MaelstormPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="1" />
+		<Button Text="P" Clicked="MissionPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="2" />
+		<Button Text="P" Clicked="CommandPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="3" />
+
+		<Button Text="M" Clicked="MaelstormMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="1" />
+		<Button Text="M" Clicked="MissionMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="2" />
+		<Button Text="M" Clicked="CommandMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="3" />
+
+
+		<Grid Grid.Column="2" Grid.Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="Маэль" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=MaelstormFirstPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
+		<Grid Grid.Column="2" Grid.Row="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="Миссии" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=MissionFirstPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
+
+		<Label Text="{Binding Path=VictoryFirstPlayer}" FontSize="50" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" />
+
+		<Label Text="{Binding Path=CommandFirstPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3" Grid.Row="3" />
+
+		<Label Text="VP" FontSize="50" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" />
+		<Label Text="CP" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="4" Grid.Row="3" />
+
+		<Grid Grid.Column="6" Grid.Row="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="Маэль" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=MaelstormSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
+		<Grid Grid.Column="6" Grid.Row="2">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="Миссии" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=MissionSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
+
+		<Label Text="{Binding Path=VictorySecondPlayer}" FontSize="50" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" />
+
+		<Label Text="{Binding Path=CommandSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="3" />
+
+
+		<Button Text="P" Clicked="MaelstormPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="1" />
+		<Button Text="P" Clicked="MissionPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="2" />
+		<Button Text="P" Clicked="CommandPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="3" />
+
+		<Button Text="M" Clicked="MaelstormMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="1" />
+		<Button Text="M" Clicked="MissionMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="2" />
+		<Button Text="M" Clicked="CommandMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="3" />
+
+	</Grid>
+
+</ContentPage>
