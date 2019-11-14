@@ -4,9 +4,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VictoryPointsAssistance.ViewModels;
 using Xamarin.Forms;
 
-namespace VictoryPointsAssistance
+namespace VictoryPointsAssistance.Views.Pages
 {
 	// Learn more about making custom code visible in the Xamarin.Forms previewer
 	// by visiting https://aka.ms/xamarinforms-previewer

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
-namespace VictoryPointsAssistance
+namespace VictoryPointsAssistance.ViewModels
 {
-	public class VicoryPointsViewModel : INotifyPropertyChanged
+	public class VicoryPointsViewModel : BaseViewModel
 	{
 		public VicoryPointsViewModel()
 		{
@@ -50,24 +50,24 @@ namespace VictoryPointsAssistance
 
 		private void OnMalestormChanged()
 		{
-			OnPropertyChanged("MaelstormFirstPlayer");
-			OnPropertyChanged("MaelstormSecondPlayer");
+			OnPropertyChanged(nameof(MaelstormFirstPlayer));
+			OnPropertyChanged(nameof(MaelstormSecondPlayer));
 
 			OnVictoryChanged();
 		}
 
 		private void OnMissionChanged()
 		{
-			OnPropertyChanged("MissionFirstPlayer");
-			OnPropertyChanged("MissionSecondPlayer");
+			OnPropertyChanged(nameof(MissionFirstPlayer));
+			OnPropertyChanged(nameof(MissionSecondPlayer));
 
 			OnVictoryChanged();
 		}
 
 		private void OnCommandChanged()
 		{
-			OnPropertyChanged("CommandFirstPlayer");
-			OnPropertyChanged("CommandSecondPlayer");
+			OnPropertyChanged(nameof(CommandFirstPlayer));
+			OnPropertyChanged(nameof(CommandSecondPlayer));
 
 			OnVictoryChanged();
 		}
@@ -75,14 +75,8 @@ namespace VictoryPointsAssistance
 
 		private void OnVictoryChanged()
 		{
-			OnPropertyChanged("VictoryFirstPlayer");
-			OnPropertyChanged("VictorySecondPlayer");
-		}
-
-		public event PropertyChangedEventHandler PropertyChanged;
-		public void OnPropertyChanged(string prop = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+			OnPropertyChanged(nameof(VictoryFirstPlayer));
+			OnPropertyChanged(nameof(VictorySecondPlayer));
 		}
 	}
 }
