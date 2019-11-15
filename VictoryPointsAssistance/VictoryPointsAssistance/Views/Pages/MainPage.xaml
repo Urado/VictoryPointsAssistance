@@ -26,13 +26,13 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
-		<Button Text="P" Clicked="MaelstormPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="1" />
-		<Button Text="P" Clicked="MissionPlusFirstPlayerClicker" Grid.Column="0" Grid.Row="2" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerAdd}" Grid.Column="0" Grid.Row="1" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionFirstPlayerAdd}" Grid.Column="0" Grid.Row="2" />
 		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerAdd}"  Grid.Column="0" Grid.Row="3" />
 
-		<Button Text="M" Clicked="MaelstormMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="1" />
-		<Button Text="M" Clicked="MissionMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="2" />
-		<Button Text="M" Clicked="CommandMinusFirstPlayerClicker" Grid.Column="1" Grid.Row="3" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerRemove}" Grid.Column="1" Grid.Row="1" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionFirstPlayerRemove}" Grid.Column="1" Grid.Row="2" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerRemove}" Grid.Column="1" Grid.Row="3" />
 
 
 		<Grid Grid.Column="2" Grid.Row="1">
@@ -81,13 +81,13 @@
 		<Label Text="{Binding Path=CommandSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="3" />
 
 
-		<Button Text="P" Clicked="MaelstormPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="1" />
-		<Button Text="P" Clicked="MissionPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="2" />
-		<Button Text="P" Clicked="CommandPlusSecondPlayerClicker" Grid.Column="7" Grid.Row="3" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerAdd}" Grid.Column="7" Grid.Row="1" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionSecondPlayerAdd}" Grid.Column="7" Grid.Row="2" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerAdd}" Grid.Column="7" Grid.Row="3" />
 
-		<Button Text="M" Clicked="MaelstormMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="1" />
-		<Button Text="M" Clicked="MissionMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="2" />
-		<Button Text="M" Clicked="CommandMinusSecondPlayerClicker" Grid.Column="8" Grid.Row="3" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerRemove}" Grid.Column="8" Grid.Row="1" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionSecondPlayerRemove}" Grid.Column="8" Grid.Row="2" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerRemove}" Grid.Column="8" Grid.Row="3" />
 
 	</Grid>
 

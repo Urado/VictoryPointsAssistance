@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Windows.Input;
 using VictoryPointsAssistance.Models;
 using Xamarin.Forms;
@@ -13,16 +10,30 @@ namespace VictoryPointsAssistance.ViewModels
 		public VicoryPointsViewModel()
 		{
 			Players = new List<Player> { new Player(), new Player() };
-			PlusMinusButtonCommand = new Command<PointsChangeModel>((PointsChangeModel p) => ChangeComand(p.Player, p.ChangePoints));
+			PlusMinusButtonCommand = new Command<PointsChangeModel>(ChangePoints);
 		}
 
 		public IReadOnlyList<Player> Players { get; set; }
 
 		public ICommand PlusMinusButtonCommand { get; set; }
 
-		public PointsChangeModel CommandFirstPlayerAdd { get; set; } = PointsChangeModel.CommandFirstPlayerAdd;
+		public PointsChangeModel CommandFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Command };
+		public PointsChangeModel CommandFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Command };
 
-		//public ICommand<(int, int)> TestPulsMinusCommand { get; set; }
+		public PointsChangeModel MaelstormFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Maelstorm };
+		public PointsChangeModel MaelstormFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Maelstorm };
+
+		public PointsChangeModel MissionFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Mission };
+		public PointsChangeModel MissionFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Mission };
+
+		public PointsChangeModel CommandSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Command };
+		public PointsChangeModel CommandSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Command };
+
+		public PointsChangeModel MaelstormSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Maelstorm };
+		public PointsChangeModel MaelstormSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Maelstorm };
+
+		public PointsChangeModel MissionSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Mission };
+		public PointsChangeModel MissionSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Mission };
 
 		public string MaelstormFirstPlayer { get { return Players[0].MaelstormVictoryPoints.ToString(); } }
 
@@ -40,22 +51,26 @@ namespace VictoryPointsAssistance.ViewModels
 
 		public string CommandSecondPlayer { get { return Players[1].CommandPoints.ToString(); } }
 
-		public void ChangeMaelstorm(int player, int add)
+		public void ChangePoints(PointsChangeModel pointsChangeModel)
 		{
-			Players[player].MaelstormVictoryPoints += add;
-			OnMalestormChanged();
-		}
+			switch (pointsChangeModel.PointsType)
+			{
+				case PointsType.Command:
+					Players[pointsChangeModel.Player].CommandPoints += pointsChangeModel.ChangePoints;
+					OnCommandChanged();
+					break;
+				case PointsType.Maelstorm:
+					Players[pointsChangeModel.Player].MaelstormVictoryPoints += pointsChangeModel.ChangePoints;
+					OnMalestormChanged();
+					break;
+				case PointsType.Mission:
+					Players[pointsChangeModel.Player].MissionVictoryPoints += pointsChangeModel.ChangePoints;
+					OnMissionChanged();
+					break;
+				default:
+					break;
+			}
 
-		public void ChangeMission(int player, int add)
-		{
-			Players[player].MissionVictoryPoints += add;
-			OnMissionChanged();
-		}
-
-		public void ChangeComand(int player, int add)
-		{
-			Players[player].CommandPoints += add;
-			OnCommandChanged();
 		}
 
 		private void OnMalestormChanged()

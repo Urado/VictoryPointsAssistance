@@ -11,8 +11,6 @@ namespace VictoryPointsAssistance.Models
 		public int ChangePoints { get; set; }
 
 		public PointsType PointsType { get; set; }
-
-		public static PointsChangeModel CommandFirstPlayerAdd = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Command };
 	}
 
 	public enum PointsType
@@ -21,5 +19,5 @@ namespace VictoryPointsAssistance.Models
 		Maelstorm,
 		Mission,
 		Command
- }
+	}
 }
