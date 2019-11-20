@@ -34,7 +34,7 @@ namespace VictoryPointsAssistance.ViewModels
 		}
 		private int PointDifferent()
 		{
-			return Math.Max(0, Math.Min(10, (Math.Abs(Players[0].VictoryPoints - Players[1].VictoryPoints) + 1) / 2)) 
+			return Math.Max(0, Math.Min(10, (Math.Abs(Players[0].VictoryPoints - Players[1].VictoryPoints) + 1) / 2))
 				* Math.Sign(Players[0].VictoryPoints - Players[1].VictoryPoints);
 		}
 

@@ -26,13 +26,13 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerAdd}" Grid.Column="0" Grid.Row="1" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerAdd}" Grid.Column="0" Grid.Row="2" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerAdd}"  Grid.Column="0" Grid.Row="3" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerAdd}" Grid.Column="0" Grid.Row="1" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerAdd}" Grid.Column="0" Grid.Row="2" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerAdd}"  Grid.Column="0" Grid.Row="3" />
 
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerRemove}" Grid.Column="1" Grid.Row="1" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerRemove}" Grid.Column="1" Grid.Row="2" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerRemove}" Grid.Column="1" Grid.Row="3" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerRemove}" Grid.Column="1" Grid.Row="1" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerRemove}" Grid.Column="1" Grid.Row="2" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerRemove}" Grid.Column="1" Grid.Row="3" />
 
 
 		<Grid Grid.Column="2" Grid.Row="1">
@@ -81,31 +81,35 @@
 		<Label Text="{Binding Path=CommandSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="3" />
 
 
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerAdd}" Grid.Column="7" Grid.Row="1" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerAdd}" Grid.Column="7" Grid.Row="2" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerAdd}" Grid.Column="7" Grid.Row="3" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerAdd}" Grid.Column="7" Grid.Row="1" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerAdd}" Grid.Column="7" Grid.Row="2" />
+		<ImageButton Source="plus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerAdd}" Grid.Column="7" Grid.Row="3" />
 
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerRemove}" Grid.Column="8" Grid.Row="1" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerRemove}" Grid.Column="8" Grid.Row="2" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerRemove}" Grid.Column="8" Grid.Row="3" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerRemove}" Grid.Column="8" Grid.Row="1" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerRemove}" Grid.Column="8" Grid.Row="2" />
+		<ImageButton Source="minus" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerRemove}" Grid.Column="8" Grid.Row="3" />
 
-		<Grid Grid.Column="3" Grid.Row="0">
+		<Grid Grid.Column="2" Grid.Row="0">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*" />
-				<RowDefinition Height="3*" />
+				<RowDefinition Height="2*" />
+				<RowDefinition Height="5*" />
 			</Grid.RowDefinitions>
-			<Label Text="ТО" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
-			<Label Text="{Binding Path=FirstPlayerPoints}" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+			<Label Text="ТО" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=FirstPlayerPoints}" FontSize="45" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
 		</Grid>
 
-		<Grid Grid.Column="5" Grid.Row="0">
+		<Grid Grid.Column="6" Grid.Row="0">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*" />
-				<RowDefinition Height="3*" />
+				<RowDefinition Height="2*" />
+				<RowDefinition Height="5*" />
 			</Grid.RowDefinitions>
-			<Label Text="ТО" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
-			<Label Text="{Binding Path=SecondPlayerPoints}" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+			<Label Text="ТО" FontSize="18" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=SecondPlayerPoints}" FontSize="45" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
 		</Grid>
+
+		<Entry Text="Urado" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" />
+
+		<Entry Text="Urado" VerticalOptions="Center" HorizontalOptions="Center" FontSize="30" Grid.Column="7" Grid.Row="0" Grid.ColumnSpan="2" />
 
 	</Grid>
 
