@@ -12,11 +12,29 @@ namespace VictoryPointsAssistance.ViewModels
 		{
 			Players = new List<Player> { new Player(), new Player() };
 			PlusMinusButtonCommand = new Command<PointsChangeModel>(ChangePoints);
+			PlusTurnButtonCommand = new Command(() => 
+				{
+					Turn++;
+					OnPropertyChanged(nameof(Turn));
+				});
+			MinusTurnButtonCommand = new Command(() => 
+				{
+					Turn--;
+					if (Turn < 0)
+						Turn = 0;
+					OnPropertyChanged(nameof(Turn)); 
+				});
 		}
 
 		public IReadOnlyList<Player> Players { get; set; }
 
 		public ICommand PlusMinusButtonCommand { get; set; }
+
+		public ICommand PlusTurnButtonCommand { get; set; }
+
+		public ICommand MinusTurnButtonCommand { get; set; }
+
+		public int Turn { get; set; }
 
 		public int FirstPlayerPoints
 		{
