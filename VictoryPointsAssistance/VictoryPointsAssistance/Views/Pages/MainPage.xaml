@@ -27,11 +27,11 @@
 		</Grid.RowDefinitions>
 
 		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerAdd}" Grid.Column="0" Grid.Row="1" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionFirstPlayerAdd}" Grid.Column="0" Grid.Row="2" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerAdd}" Grid.Column="0" Grid.Row="2" />
 		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerAdd}"  Grid.Column="0" Grid.Row="3" />
 
 		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormFirstPlayerRemove}" Grid.Column="1" Grid.Row="1" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionFirstPlayerRemove}" Grid.Column="1" Grid.Row="2" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalFirstPlayerRemove}" Grid.Column="1" Grid.Row="2" />
 		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandFirstPlayerRemove}" Grid.Column="1" Grid.Row="3" />
 
 
@@ -49,7 +49,7 @@
 				<RowDefinition Height="3*" />
 			</Grid.RowDefinitions>
 			<Label Text="Миссии" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
-			<Label Text="{Binding Path=MissionFirstPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+			<Label Text="{Binding Path=EternalFirstPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
 		</Grid>
 
 		<Label Text="{Binding Path=VictoryFirstPlayer}" FontSize="50" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" />
@@ -73,7 +73,7 @@
 				<RowDefinition Height="3*" />
 			</Grid.RowDefinitions>
 			<Label Text="Миссии" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
-			<Label Text="{Binding Path=MissionSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+			<Label Text="{Binding Path=EternalSecondPlayer}" FontSize="30" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
 		</Grid>
 
 		<Label Text="{Binding Path=VictorySecondPlayer}" FontSize="50" VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="5" Grid.Row="1" Grid.RowSpan="2" />
@@ -82,12 +82,30 @@
 
 
 		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerAdd}" Grid.Column="7" Grid.Row="1" />
-		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionSecondPlayerAdd}" Grid.Column="7" Grid.Row="2" />
+		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerAdd}" Grid.Column="7" Grid.Row="2" />
 		<Button Text="P" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerAdd}" Grid.Column="7" Grid.Row="3" />
 
 		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MaelstormSecondPlayerRemove}" Grid.Column="8" Grid.Row="1" />
-		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding MissionSecondPlayerRemove}" Grid.Column="8" Grid.Row="2" />
+		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding EternalSecondPlayerRemove}" Grid.Column="8" Grid.Row="2" />
 		<Button Text="M" Command="{Binding PlusMinusButtonCommand}" CommandParameter="{Binding CommandSecondPlayerRemove}" Grid.Column="8" Grid.Row="3" />
+
+		<Grid Grid.Column="3" Grid.Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="ТО" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=FirstPlayerPoints}" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
+
+		<Grid Grid.Column="5" Grid.Row="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="3*" />
+			</Grid.RowDefinitions>
+			<Label Text="ТО" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" />
+			<Label Text="{Binding Path=SecondPlayerPoints}" FontSize="40" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" />
+		</Grid>
 
 	</Grid>
 

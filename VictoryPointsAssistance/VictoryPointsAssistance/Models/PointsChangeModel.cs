@@ -17,7 +17,7 @@ namespace VictoryPointsAssistance.Models
 	{
 		Vctory,
 		Maelstorm,
-		Mission,
+		Eternal,
 		Command
 	}
 }
