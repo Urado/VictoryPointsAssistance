@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using VictoryPointsAssistance.Models;
 using Xamarin.Forms;
@@ -11,11 +12,49 @@ namespace VictoryPointsAssistance.ViewModels
 		{
 			Players = new List<Player> { new Player(), new Player() };
 			PlusMinusButtonCommand = new Command<PointsChangeModel>(ChangePoints);
+			PlusTurnButtonCommand = new Command(() => 
+				{
+					Turn++;
+					OnPropertyChanged(nameof(Turn));
+				});
+			MinusTurnButtonCommand = new Command(() => 
+				{
+					Turn--;
+					if (Turn < 0)
+						Turn = 0;
+					OnPropertyChanged(nameof(Turn)); 
+				});
 		}
 
 		public IReadOnlyList<Player> Players { get; set; }
 
 		public ICommand PlusMinusButtonCommand { get; set; }
+
+		public ICommand PlusTurnButtonCommand { get; set; }
+
+		public ICommand MinusTurnButtonCommand { get; set; }
+
+		public int Turn { get; set; }
+
+		public int FirstPlayerPoints
+		{
+			get
+			{
+				return 10 + PointDifferent();
+			}
+		}
+		public int SecondPlayerPoints
+		{
+			get
+			{
+				return 10 - PointDifferent();
+			}
+		}
+		private int PointDifferent()
+		{
+			return Math.Max(0, Math.Min(10, (Math.Abs(Players[0].VictoryPoints - Players[1].VictoryPoints) + 1) / 2))
+				* Math.Sign(Players[0].VictoryPoints - Players[1].VictoryPoints);
+		}
 
 		public PointsChangeModel CommandFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Command };
 		public PointsChangeModel CommandFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Command };
@@ -23,8 +62,8 @@ namespace VictoryPointsAssistance.ViewModels
 		public PointsChangeModel MaelstormFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Maelstorm };
 		public PointsChangeModel MaelstormFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Maelstorm };
 
-		public PointsChangeModel MissionFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Mission };
-		public PointsChangeModel MissionFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Mission };
+		public PointsChangeModel EternalFirstPlayerAdd { get; } = new PointsChangeModel { Player = 0, ChangePoints = 1, PointsType = PointsType.Eternal };
+		public PointsChangeModel EternalFirstPlayerRemove { get; } = new PointsChangeModel { Player = 0, ChangePoints = -1, PointsType = PointsType.Eternal };
 
 		public PointsChangeModel CommandSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Command };
 		public PointsChangeModel CommandSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Command };
@@ -32,16 +71,16 @@ namespace VictoryPointsAssistance.ViewModels
 		public PointsChangeModel MaelstormSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Maelstorm };
 		public PointsChangeModel MaelstormSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Maelstorm };
 
-		public PointsChangeModel MissionSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Mission };
-		public PointsChangeModel MissionSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Mission };
+		public PointsChangeModel EternalSecondPlayerAdd { get; } = new PointsChangeModel { Player = 1, ChangePoints = 1, PointsType = PointsType.Eternal };
+		public PointsChangeModel EternalSecondPlayerRemove { get; } = new PointsChangeModel { Player = 1, ChangePoints = -1, PointsType = PointsType.Eternal };
 
 		public string MaelstormFirstPlayer { get { return Players[0].MaelstormVictoryPoints.ToString(); } }
 
 		public string MaelstormSecondPlayer { get { return Players[1].MaelstormVictoryPoints.ToString(); } }
 
-		public string MissionFirstPlayer { get { return Players[0].MissionVictoryPoints.ToString(); } }
+		public string EternalFirstPlayer { get { return Players[0].EternalVictoryPoints.ToString(); } }
 
-		public string MissionSecondPlayer { get { return Players[1].MissionVictoryPoints.ToString(); } }
+		public string EternalSecondPlayer { get { return Players[1].EternalVictoryPoints.ToString(); } }
 
 		public string VictoryFirstPlayer { get { return Players[0].VictoryPoints.ToString(); } }
 
@@ -63,9 +102,9 @@ namespace VictoryPointsAssistance.ViewModels
 					Players[pointsChangeModel.Player].MaelstormVictoryPoints += pointsChangeModel.ChangePoints;
 					OnMalestormChanged();
 					break;
-				case PointsType.Mission:
-					Players[pointsChangeModel.Player].MissionVictoryPoints += pointsChangeModel.ChangePoints;
-					OnMissionChanged();
+				case PointsType.Eternal:
+					Players[pointsChangeModel.Player].EternalVictoryPoints += pointsChangeModel.ChangePoints;
+					OnEternalChanged();
 					break;
 				default:
 					break;
@@ -81,10 +120,10 @@ namespace VictoryPointsAssistance.ViewModels
 			OnVictoryChanged();
 		}
 
-		private void OnMissionChanged()
+		private void OnEternalChanged()
 		{
-			OnPropertyChanged(nameof(MissionFirstPlayer));
-			OnPropertyChanged(nameof(MissionSecondPlayer));
+			OnPropertyChanged(nameof(EternalFirstPlayer));
+			OnPropertyChanged(nameof(EternalSecondPlayer));
 
 			OnVictoryChanged();
 		}
@@ -102,6 +141,8 @@ namespace VictoryPointsAssistance.ViewModels
 		{
 			OnPropertyChanged(nameof(VictoryFirstPlayer));
 			OnPropertyChanged(nameof(VictorySecondPlayer));
+			OnPropertyChanged(nameof(FirstPlayerPoints));
+			OnPropertyChanged(nameof(SecondPlayerPoints));
 		}
 	}
 }

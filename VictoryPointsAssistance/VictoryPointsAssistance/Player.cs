@@ -8,13 +8,13 @@ namespace VictoryPointsAssistance
 	{
 		private int commandPoints;
 		private int maelstormVictoryPoints;
-		private int missionVictoryPoints;
+		private int eternalVictoryPoints;
 
 		public int VictoryPoints
 		{
 			get
 			{
-				return MaelstormVictoryPoints + MissionVictoryPoints;
+				return MaelstormVictoryPoints + EternalVictoryPoints;
 			}
 		}
 
@@ -30,10 +30,10 @@ namespace VictoryPointsAssistance
 			set => maelstormVictoryPoints = Math.Max(value, 0);
 		}
 
-		public int MissionVictoryPoints
+		public int EternalVictoryPoints
 		{
-			get => missionVictoryPoints;
-			set => missionVictoryPoints = Math.Max(value, 0);
+			get => eternalVictoryPoints;
+			set => eternalVictoryPoints = Math.Max(value, 0);
 		}
 	}
 }
